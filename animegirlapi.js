@@ -13,9 +13,6 @@ var config = require("./config.json");
 // go to public directory for assets
 app.use(express.static("public"));
 
-// set view engine to use ejs
-app.set("view engine", "ejs");
-
 // get body of post request
 app.use(bodyParser.urlencoded({extended: true}));
 
@@ -28,20 +25,14 @@ function getRandomNumber(min, max) {
 }
 
 /*
-    API
-*/
-
-/*
-    GET
+    GET /image
     Retrives random image
 */
 app.get("/image", function(req, res){
     var images = [];
-    var imageCount = 0;
 
     fs.readdir("./" + config.directory, (err, files) => {
         files.forEach(file => {
-            imageCount++;
             images.push(file);
         });
 
