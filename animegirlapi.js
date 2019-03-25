@@ -6,15 +6,11 @@
  var express    = require("express"),
      app        = express();
      fs         = require("fs");
-     bodyParser = require("body-parser");
 
 var config = require("./config.json");
 
 // go to public directory for assets
 app.use(express.static("public"));
-
-// get body of post request
-app.use(bodyParser.urlencoded({extended: true}));
 
 /*
     FUNCTIONS
